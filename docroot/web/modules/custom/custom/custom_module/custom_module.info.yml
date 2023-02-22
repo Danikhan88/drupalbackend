@@ -1,0 +1,9 @@
+name: Custom Module
+type: module
+description: 'My first Custom Module of Drupal.'
+package: Custom
+version: 1.0
+core_version_requirement: ^9 || ^10
+libraries:
+  - custom_module/custom_module_css_js
+

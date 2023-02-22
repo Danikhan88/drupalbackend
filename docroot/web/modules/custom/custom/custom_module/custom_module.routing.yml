@@ -1,0 +1,38 @@
+custom_module.my_page:
+  path: "/custom_module"
+  defaults:
+    _controller: '\Drupal\custom_module\Controller\Custom_moduleController::myPage'
+    _title: "My first page in D8"
+  requirements:
+    _permission: "access content"
+
+custom_module.reg_form:
+  path: "/reg_form"
+  defaults:
+    _form: '\Drupal\custom_module\Form\RegistrationForm'
+    _title: "Student Registeration Form"
+  requirements:
+    _permission: "access content"
+
+custom_module.edit_student:
+  path: '/edit_student/{id}'
+  defaults:
+    _form: '\Drupal\custom_module\Form\EditForm'
+    _title: 'Edit Student Reg Form'
+  requirements:
+    _permission: 'access content'
+
+custom_module.deleteStudent:
+  path: '/delete_student/{id}'
+  defaults:
+    _controller: '\Drupal\custom_module\Controller\Custom_moduleController::deleteStudent'
+  requirements:
+    _permission: 'access content'
+
+custom_module.import_articles:
+  path: '/import_articles'
+  defaults:
+    _controller: '\Drupal\custom_module\Controller\Custom_moduleController::importArticles'
+    _title: 'Import Articles'
+  requirements:
+    _permission: 'access content'

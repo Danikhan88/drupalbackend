@@ -1,0 +1,28 @@
+<?php
+
+function custom_module_form_alter(&$form, \Drupal\Core\Form\FormStateInterface$form_state, $form_id)
+{
+    // kint($form_id);
+    if ($form_id == 'node_article_form') {
+
+        $form['field_image']['#states'] = [
+            'visible' => [
+                ':input[name="field_true_or_flase[value]"]' => ['checked' => false],
+
+            ],
+        ];
+
+        $form['actions']['submit']['#submit'][] = 'custom_module_form_submit';
+
+    }
+}
+function custom_module_form_submit(array $form, \Drupal\Core\Form\FormStateInterface$form_state)
+{
+    \Drupal::messenger()->addMessage('Hello world');
+}
+
+function custom_module_page_attachments(array&$page)
+{
+
+    $page['#attached']['library'][] = 'custom/custom_module_css_js';
+}

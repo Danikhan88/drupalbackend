@@ -1,0 +1,46 @@
+    <?php
+
+/**
+ * Implements hook_schema().
+ *
+ */
+function dependency_injection_services_schema()
+{
+    $schema['custom_form'] = array(
+        'description' => 'Stores Data',
+        'fields' => array(
+            'id' => array(
+                'description' => 'Form Id',
+                'type' => 'serial',
+                'not null' => true,
+            ),
+            'name' => array(
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 20,
+            ),
+            'father_name' => array(
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 20,
+            ),
+            'mail' => array(
+                'type' => 'varchar',
+                'length' => 50,
+            ),
+            'phone' => array(
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 50,
+            ),
+            'created' => array(
+                'type' => 'int',
+                'not null' => true,
+                'default' => 0,
+                'description' => 'TimeStamp for time of creation',
+            ),
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}

@@ -1,0 +1,28 @@
+<table>
+	<tr>
+		<th>S.No</th>
+		<th>Name</th>
+		<th>Father Name</th>
+		<th>Email Id</th>
+		<th>Contact</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+	{% set count=0 %}
+	{% for key, value in data %}
+		{% set count = count+1 %}
+		<tr>
+			<td>{{ count }}</td>
+			<td>{{ value.name }}</td>
+			<td>{{ value.father_name }}</td>
+			<td>{{ value.mail }}</td>
+			<td>{{ value.phone }}</td>
+			<td>
+				<a href='edit_user/{{value.id}}'>Edit</a>
+			</td>
+			<td>
+				<a href='delete_user/{{value.id}}'>Delete</a>
+			</td>
+		</tr>
+	{% endfor %}
+</table>

@@ -1,0 +1,25 @@
+uuid: 9f3e24e9-3e3f-4e91-8045-8e8f9b07f697
+langcode: en
+status: true
+dependencies:
+  module:
+    - dependency_injection_services
+    - system
+  theme:
+    - olivero
+id: customblock
+theme: olivero
+region: highlighted
+weight: 0
+provider: null
+plugin: custom_block
+settings:
+  id: custom_block
+  label: 'Custom block'
+  label_display: visible
+  provider: dependency_injection_services
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

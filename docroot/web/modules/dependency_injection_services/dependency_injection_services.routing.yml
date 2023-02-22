@@ -1,0 +1,22 @@
+dependency_injection_services.customForm:
+  path: '/custom_form'
+  defaults:
+    _form: '\Drupal\dependency_injection_services\Form\CustomForm'
+    _title: 'Custom Form'
+  requirements:
+    _permission: 'access content'
+
+dependency_injection_services.EditForm:
+  path: '/edit_user/{id}'
+  defaults:
+    _form: '\Drupal\dependency_injection_services\Form\EditForm'
+    _title: 'Edit Form'
+  requirements:
+    _permission: 'access content'
+
+dependency_injection_services.deleteData:
+  path: '/delete_user/{id}'
+  defaults:
+    _controller: '\Drupal\dependency_injection_services\Controller\dependency_injection_servicesController::deleteData'
+  requirements:
+    _permission: 'access content'

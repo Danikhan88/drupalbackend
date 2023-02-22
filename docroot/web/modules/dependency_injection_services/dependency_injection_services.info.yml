@@ -1,0 +1,8 @@
+name: Dependecncy Injection Services
+type: module
+description: 'Dependecncy Injection Services.'
+package: Custom
+version: 1.0
+core_version_requirement: ^9 || ^10
+
+
