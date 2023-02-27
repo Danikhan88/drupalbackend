@@ -1,0 +1,23 @@
+uuid: 23d0f01f-a68a-46ac-93ea-a98c915e5ca2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.contant_type_
+  module:
+    - text
+id: node.contant_type_.body
+field_name: body
+entity_type: node
+bundle: contant_type_
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

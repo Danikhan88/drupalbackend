@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'df15fe86852d3f769f881aaa73031f90ad647631',
+        'reference' => NULL,
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -389,12 +389,12 @@
             'dev_requirement' => false,
         ),
         'drupal/recommended-project' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'df15fe86852d3f769f881aaa73031f90ad647631',
+            'reference' => NULL,
             'dev_requirement' => false,
         ),
         'drupal/twig_vardumper' => array(
@@ -407,12 +407,12 @@
             'dev_requirement' => false,
         ),
         'drush/drush' => array(
-            'pretty_version' => '11.5.0',
-            'version' => '11.5.0.0',
+            'pretty_version' => '11.5.1',
+            'version' => '11.5.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../drush/drush',
             'aliases' => array(),
-            'reference' => '70c0826b99a633b45b274fe3c3353ea0274d8862',
+            'reference' => '3138f82baa3b0e29ac935893a444881a7332177d',
             'dev_requirement' => false,
         ),
         'egulias/email-validator' => array(

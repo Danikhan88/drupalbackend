@@ -1,0 +1,29 @@
+uuid: d2ce02a5-45cf-48bd-90f5-d30eed232c2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.custom_entity
+  module:
+    - system
+    - views
+  theme:
+    - olivero
+id: views_block__custom_entity_block_1
+theme: olivero
+region: highlighted
+weight: 0
+provider: null
+plugin: 'views_block:custom_entity-block_1'
+settings:
+  id: 'views_block:custom_entity-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
