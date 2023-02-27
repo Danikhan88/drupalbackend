@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.contant_type_.body
     - field.field.node.contant_type_.field_label
+    - field.field.node.contant_type_.field_phone
     - node.type.contant_type_
   module:
     - path
@@ -36,6 +37,13 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone:
+    type: number
+    weight: 26
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   path:

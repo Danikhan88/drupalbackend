@@ -1,0 +1,23 @@
+uuid: f593c657-a589-4a41-8e36-571bd048756d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone
+    - node.type.contant_type_
+id: node.contant_type_.field_phone
+field_name: field_phone
+entity_type: node
+bundle: contant_type_
+label: Phone
+description: 'Contact Number'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
