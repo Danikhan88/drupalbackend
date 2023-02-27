@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_id
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.thumbnail
@@ -42,6 +43,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_id:
+    type: number
+    weight: 121
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_image:
     type: image_image

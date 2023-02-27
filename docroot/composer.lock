@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a50861e312621383ada1a245cf26406",
+    "content-hash": "5509e34799b4e1c551ef5d16f2ca2197",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1833,6 +1833,70 @@
                 "source": "https://gitlab.com/drupalspoons/devel",
                 "issues": "https://gitlab.com/drupalspoons/devel/-/issues",
                 "slack": "https://drupal.slack.com/archives/C012WAW1MH6"
+            }
+        },
+        {
+            "name": "drupal/entity_update",
+            "version": "3.0.0-rc2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entity_update.git",
+                "reference": "3.0.0-rc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_update-3.0.0-rc2.zip",
+                "reference": "3.0.0-rc2",
+                "shasum": "5ea50ff68d857ddae41877d2ccb495e15c6137dd"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0-rc2",
+                    "datestamp": "1675148914",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Nuwantha",
+                    "homepage": "https://www.drupal.org/u/iwsp",
+                    "role": "Owner"
+                },
+                {
+                    "name": "NuWans",
+                    "homepage": "https://www.drupal.org/u/nuwans",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Siva Karthik Reddy",
+                    "homepage": "https://www.drupal.org/u/sivakarthik229",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Update Drupal Entity schema.",
+            "homepage": "https://www.drupal.org/project/entity_update",
+            "support": {
+                "source": "http://git.drupal.org/project/entity_update.git",
+                "issues": "https://www.drupal.org/project/issues/entity_update"
             }
         },
         {
@@ -6309,7 +6373,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/entity_update": 5
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

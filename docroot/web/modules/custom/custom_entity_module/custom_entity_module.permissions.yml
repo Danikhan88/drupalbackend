@@ -1,0 +1,11 @@
+administer custom entity module:
+  title: 'Administer custom entity module settings'
+  restrict access: true
+delete custom entity module:
+  title: Delete custom entity module
+create custom entity module:
+  title: Create custom entity module
+view custom entity module:
+  title: View custom entity module
+edit custom entity module:
+  title: Edit custom entity module

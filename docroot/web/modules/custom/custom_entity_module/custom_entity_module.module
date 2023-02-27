@@ -1,0 +1,101 @@
+<?php
+
+/**
+ * @file
+ * Provides a custom entity module entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\custom_entity_module\Entity\CustomEntityModule;
+use Drupal\user\UserInterface;
+use Drupal\Core\Entity\ContentEntity;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+;
+
+
+/**
+ * Implements hook_theme().
+ */
+function custom_entity_module_theme() {
+  return [
+    'custom_entity_module' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for custom entity module templates.
+ *
+ * Default template: custom-entity-module.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the custom entity module information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_custom_entity_module(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function custom_entity_module_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish custom entity modules.
+      $storage = \Drupal::entityTypeManager()->getStorage('custom_entity_module');
+      $custom_entity_module_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($custom_entity_module_ids) as $custom_entity_module) {
+        $custom_entity_module->set('status', FALSE);
+        $custom_entity_module->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize custom entity modules.
+      $storage = \Drupal::entityTypeManager()->getStorage('custom_entity_module');
+      $custom_entity_module_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($custom_entity_module_ids) as $custom_entity_module) {
+        $custom_entity_module->setOwnerId(0);
+        $custom_entity_module->save();
+      }
+      break;
+  }
+}
+
+
+function custom_entity_module_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+    // kint($form_id);
+    // exit;
+    if ($form_id == 'custom_entity_module_add_form') {
+
+        $form['#validate'][] = 'custom_email_validate';
+    }
+}
+function custom_email_validate(&$form, FormStateInterface $form_state) {
+  // kint($form_state);
+  $values = $form_state->getValues();
+  if($values['email'][0]['value']) {
+  $email = $values['email'][0]['value'];
+  $query = \Drupal::entityQuery('custom_entity_module')
+  ->accessCheck(TRUE)
+  ->condition('email', $email, '=');
+   $results = $query->execute();
+    if(count($results) > 0) {
+      $form_state->setErrorByName('email', t('The  Email ID already exists.'));
+    }
+  }
+}

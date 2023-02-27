@@ -10,7 +10,7 @@ dependencies:
 id: customblock
 theme: olivero
 region: highlighted
-weight: 0
+weight: -2
 provider: null
 plugin: custom_block
 settings:

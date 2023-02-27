@@ -7,11 +7,13 @@ namespace Drupal\dependency_injection_services\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\dependency_injection_services\services\Db_insert;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CustomForm extends FormBase
 {
     //this loaddata is an object which we call in our Submit function
-    // protected $loaddata;
+    protected $loaddata;
     /**
      * {@inheritdoc}
      */
@@ -19,11 +21,17 @@ class CustomForm extends FormBase
     {
         return 'custom_form';
     }
-    //we called our constructor(service) here which we have defined in DB_insert file under services folder
-    // public function __construct()
-    // {
-    //     $this->loaddata = \Drupal::service('dependency_injection_services.dbinsert');
-    // }
+  
+    public function __construct(Db_insert $loaddata) {
+        $this->loaddata = $loaddata;
+         // $this->loaddata = \Drupal::service('dependency_injection_services.dbinsert');
+      }
+      
+    public static function create(ContainerInterface $container) {
+        return new static(
+          $container->get('dependency_injection_services.dbinsert')
+        );
+      }
 
     public function buildForm(array $form, FormStateInterface $form_state)
     {
@@ -105,7 +113,7 @@ class CustomForm extends FormBase
             \Drupal::messenger()->addError(t("Email ID  is already taken"));
         } else {
             //Here we have called loaddata object and setData funtion which we have defind in Db_insert file under services folder
-            $query = \Drupal::service('dependency_injection_services.dbinsert')->setData($form_state);
+            $query = $this->loaddata->setData($form_state);
             $response = new \Symfony\Component\HttpFoundation\RedirectResponse('../');
             $response->send();
             \Drupal::messenger()->addMessage(t("Data Inserted  Successfully"));

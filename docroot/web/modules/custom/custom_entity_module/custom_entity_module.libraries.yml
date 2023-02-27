@@ -1,0 +1,10 @@
+custom_entity_module_css_js:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/main.js: {}
+  dependencies:
+    - core/jquery
+        

@@ -1,4 +1,4 @@
-uuid: 015d6ecc-a68c-43a0-b708-aff6a6f25e69
+uuid: b4ee48ab-78d7-491d-b313-a3d238eb3aab
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
 id: articleblock
 theme: olivero
 region: highlighted
-weight: 0
+weight: -3
 provider: null
 plugin: article_block
 settings:

@@ -1,0 +1,9 @@
+name: Custom Entity Module
+type: module
+description: 'My first Custom Entity Module of Drupal.'
+package: Custom
+version: 1.0
+core_version_requirement: ^9 || ^10
+libraries:
+  - custom_entity_module/custom_entity_module_css_js
+

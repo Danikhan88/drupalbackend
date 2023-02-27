@@ -35,7 +35,7 @@ class ArticleBlock extends BlockBase {
     $query = \Drupal::database();
     $res = $query->select('reg_form', 'ufd')
     ->fields('ufd', ['id','student_name','student_rollno','student_mail','student_phone','student_dob','student_gender'
-    ,'file_upload'])
+    ])
     ->execute()
     ->fetchAll();
 
@@ -52,7 +52,6 @@ class ArticleBlock extends BlockBase {
         'student_phone'=> $row->student_phone,
         'student_dob'=> $row->student_dob,
         'student_gender'=> $row->student_gender,
-        'file_upload'=>  '<img src="/public/ $row->file_upload.jpg">',
         'edit'=>$this->t("<a href='edit_student/$row->id'>Edit</a>"),
         'Delete'=>$this->t("<a href='delete_student/$row->id'>Delete</a>"),
       ];
@@ -60,7 +59,7 @@ class ArticleBlock extends BlockBase {
     }
 
     $header = array('S.No','Student Name','Student Roll No','Student Email','Student Contact','Student DOB',
-    'Student Gender','Student Image','Edit','Delete');
+    'Student Gender','Edit','Delete');
 
     $build['table'] = [
       '#type' => 'table',
